@@ -5,7 +5,7 @@ function ColorMyPencils(color)
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 end
-    
+ 
 return {
     {
         "folke/tokyonight.nvim",
@@ -20,11 +20,11 @@ return {
                 },
             })
         end
-    },  
+    },
 
     {
         "rose-pine/neovim",
-        name = "rose-pine", 
+        name = "rose-pine",
         config = function()
             vim.cmd("colorscheme rose-pine")
             require('rose-pine').setup({
