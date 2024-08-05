@@ -25,7 +25,9 @@ return {
 				"pylsp",
 				"vimls",
 				"tailwindcss",
-                "intelephense",
+				"intelephense",
+				"gopls",
+				"rust_analyzer",
 			},
 			handlers = {
 				function(server_name)
