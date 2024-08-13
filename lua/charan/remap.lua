@@ -53,3 +53,7 @@ end)
 vim.keymap.set("n", "<leader>cd", function()
 	vim.cmd("Copilot disable")
 end)
+
+vim.keymap.set("n", "<leader>en", function()
+	vim.cmd("Copilot enable")
+end)
