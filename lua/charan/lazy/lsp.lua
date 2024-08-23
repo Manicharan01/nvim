@@ -22,7 +22,7 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"tsserver",
-				"pylsp",
+                "pyright",
 				"vimls",
 				"tailwindcss",
 				"intelephense",
