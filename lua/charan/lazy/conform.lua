@@ -9,8 +9,11 @@ return {
 				python = { "isort", "black" },
 				typescript = { "prettier" },
 				javascript = { "prettier" },
+				typescriptreact = { "prettier" },
+				javascriptreact = { "prettier" },
 				html = { "prettier" },
 				css = { "prettier" },
+				json = { "fixjson" },
 			},
 
 			format_on_save = {
