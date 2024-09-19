@@ -14,6 +14,7 @@ return {
 				html = { "prettier" },
 				css = { "prettier" },
 				json = { "fixjson" },
+				rust = { "ast-grep" },
 			},
 
 			format_on_save = {

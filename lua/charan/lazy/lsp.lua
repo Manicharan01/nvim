@@ -30,7 +30,7 @@ return {
 				"lua_ls",
 				"tailwindcss",
 				"rust_analyzer",
-				"tsserver",
+				"vtsls",
 				"pyright",
 				"gopls",
 			},
