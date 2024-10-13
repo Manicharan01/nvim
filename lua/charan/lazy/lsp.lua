@@ -32,6 +32,7 @@ return {
                 "rust_analyzer",
                 "ts_ls",
                 "gopls",
+                "zls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
