@@ -33,6 +33,7 @@ return {
                 "ts_ls",
                 "gopls",
                 "zls",
+                "pyright",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
