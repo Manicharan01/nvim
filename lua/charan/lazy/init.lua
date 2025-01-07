@@ -4,21 +4,11 @@ return {
     "echasnovski/mini.icons",
     "folke/which-key.nvim",
     "kyazdani42/nvim-web-devicons",
-    --{
-    --	"Exafunction/codeium.vim",
-    --	event = "BufEnter",
-    --},
     {
         "mbbill/undotree",
 
         config = function()
             vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-        end,
-    },
-    {
-        "supermaven-inc/supermaven-nvim",
-        config = function()
-            require("supermaven-nvim").setup({})
         end,
     }
 }
