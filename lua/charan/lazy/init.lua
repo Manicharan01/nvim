@@ -10,5 +10,10 @@ return {
         config = function()
             vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
         end,
+    },
+    {
+        "xzbdmw/colorful-menu.nvim",
+		event = { "InsertEnter", "CmdlineEnter" },
+		opts = {},
     }
 }
