@@ -40,7 +40,7 @@ return {
 
             vim.cmd("colorscheme rose-pine")
 
-            ColorMyPencils("tokyonight-night")
+            ColorMyPencils()
         end,
     },
 

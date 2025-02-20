@@ -25,7 +25,7 @@ return {
                 "tailwindcss",
                 "rust_analyzer",
                 "ts_ls",
-                "gopls",
+                -- "gopls",
                 "zls",
                 "pyright",
             },
