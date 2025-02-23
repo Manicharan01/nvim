@@ -35,12 +35,12 @@ return {
         config = function()
             require("rose-pine").setup({
                 disable_background = true,
-                disable_italics = false,
+                disable_italics = true,
             })
 
             vim.cmd("colorscheme rose-pine")
 
-            ColorMyPencils("tokyonight-night")
+            ColorMyPencils()
         end,
     },
 
