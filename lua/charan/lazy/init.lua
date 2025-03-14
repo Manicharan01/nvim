@@ -13,7 +13,13 @@ return {
     },
     {
         "xzbdmw/colorful-menu.nvim",
-		event = { "InsertEnter", "CmdlineEnter" },
-		opts = {},
-    }
+        event = { "InsertEnter", "CmdlineEnter" },
+        opts = {},
+    },
+    {
+        "supermaven-inc/supermaven-nvim",
+        config = function()
+            require("supermaven-nvim").setup({})
+        end,
+    },
 }
