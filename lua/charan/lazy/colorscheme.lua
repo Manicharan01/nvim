@@ -40,7 +40,7 @@ return {
 
             vim.cmd("colorscheme rose-pine")
 
-            ColorMyPencils()
+            ColorMyPencils("mdr")
         end,
     },
 
@@ -58,6 +58,13 @@ return {
         priority = 1000,
         config = function()
             require("nord").setup({})
+        end,
+    },
+    {
+        "mdr",
+        dir = "~/plugins/mdr.nvim",
+        config = function()
+            require("mdr").setup({})
         end,
     }
 }
