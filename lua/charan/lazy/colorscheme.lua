@@ -40,31 +40,7 @@ return {
 
             vim.cmd("colorscheme rose-pine")
 
-            ColorMyPencils("mdr")
+            ColorMyPencils("rose-pine")
         end,
     },
-
-    {
-        "catppuccin/nvim",
-        config = function()
-            require("catppuccin").setup({
-                flavour = "mocha"
-            })
-        end,
-    },
-    {
-        "dupeiran001/nord.nvim",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require("nord").setup({})
-        end,
-    },
-    {
-        "mdr",
-        dir = "~/plugins/mdr.nvim",
-        config = function()
-            require("mdr").setup({})
-        end,
-    }
 }
