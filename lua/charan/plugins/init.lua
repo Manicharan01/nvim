@@ -16,4 +16,10 @@ vim.pack.add({
     { src = "https://github.com/hrsh7th/cmp-buffer" },
     { src = "https://github.com/hrsh7th/cmp-path" },
     { src = "https://github.com/hrsh7th/cmp-cmdline" },
+    {
+        src = "https://github.com/ThePrimeagen/harpoon",
+        version = 'harpoon2',
+        name = 'harpoon',
+    },
+    { src = "https://github.com/sindrets/diffview.nvim" },
 })

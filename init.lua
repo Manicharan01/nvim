@@ -11,6 +11,8 @@ require("charan.plugins.telescope")
 require("charan.plugins.treesitter")
 require("charan.plugins.cmp")
 require("charan.plugins.lsp")
+require("charan.plugins.harpoon")
+require("charan.plugins.diffview")
 
 -- 4. UI & Extras (Can be moved to own file if preferred)
 require("fidget").setup({})
