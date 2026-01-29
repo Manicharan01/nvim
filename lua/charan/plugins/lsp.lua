@@ -24,7 +24,37 @@ vim.lsp.config['zls'] = {
     workspace_required = false
 }
 
-vim.lsp.enable({ 'lua_ls', 'zls' })
+vim.lsp.config['clangd'] = {
+    capabilities = {
+        offsetEncoding = { "utf-8", "utf-16" },
+        textDocument = {
+            completion = {
+                editsNearCursor = true
+            }
+        }
+    },
+    cmd = { "clangd" },
+    filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+    name = "clangd",
+    root_markers = { ".clangd", ".clang-tidy", ".clang-format", "compile_commands.json", "compile_flags.txt", "configure.ac", ".git" }
+}
+
+vim.lsp.config['gopls'] = {
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    name = "gopls",
+}
+
+vim.lsp.config['pyrefly'] = {
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    cmd = { "pyrefly", "lsp" },
+    filetypes = { "python" },
+    name = "pyrefly",
+    root_markers = { "pyrefly.toml", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", ".git" }
+}
+
+vim.lsp.enable({ 'lua_ls', 'zls', 'clangd', 'gopls', 'pyrefly' })
 
 -- 2. LspAttach Autocmd (Keymaps)
 vim.api.nvim_create_autocmd("LspAttach", {
