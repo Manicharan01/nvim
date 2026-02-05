@@ -34,3 +34,6 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
+vim.g.nord_italic = false
+vim.g.nord_disable_background = true

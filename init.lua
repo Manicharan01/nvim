@@ -1,4 +1,5 @@
 -- 1. Core Settings (Must load first for mapleader)
+--
 require("charan.core.options")
 require("charan.core.keymaps")
 require("charan.core.autocmds")
@@ -21,4 +22,10 @@ require("rose-pine").setup({
     disable_background = true,
     disable_italics = true,
 })
+require("kanagawa").setup({
+    undercurl = true,
+    keywordStyle = { italic = false },
+    transparent = true,
+})
+require("nord")
 vim.cmd("colorscheme rose-pine")
