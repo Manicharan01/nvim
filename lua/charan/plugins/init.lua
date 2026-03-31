@@ -3,9 +3,8 @@ vim.pack.add({
     { src = "https://github.com/nvim-telescope/telescope.nvim" },
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = 'https://github.com/neovim/nvim-lspconfig' },
+    { src = "https://github.com/folke/tokyonight.nvim" },
     { src = 'https://github.com/rose-pine/neovim' },
-    { src = 'https://github.com/rebelot/kanagawa.nvim' },
-    { src = 'https://github.com/shaunsingh/nord.nvim' },
     { src = 'https://github.com/tpope/vim-fugitive' },
     { src = "https://github.com/mbbill/undotree" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
@@ -24,4 +23,5 @@ vim.pack.add({
         name = 'harpoon',
     },
     { src = "https://github.com/sindrets/diffview.nvim" },
+    { src = "https://github.com/Manicharan01/severance-mdr.nvim" },
 })

@@ -8,6 +8,7 @@ require("charan.core.autocmds")
 require("charan.plugins")
 
 -- 3. Load Plugin Configurations
+require("charan.plugins.colorscheme")
 require("charan.plugins.telescope")
 require("charan.plugins.treesitter")
 require("charan.plugins.cmp")
@@ -18,14 +19,3 @@ require("charan.plugins.diffview")
 -- 4. UI & Extras (Can be moved to own file if preferred)
 require("fidget").setup({})
 require("mason").setup({})
-require("rose-pine").setup({
-    disable_background = true,
-    disable_italics = true,
-})
-require("kanagawa").setup({
-    undercurl = true,
-    keywordStyle = { italic = false },
-    transparent = true,
-})
-require("nord")
-vim.cmd("colorscheme rose-pine")

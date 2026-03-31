@@ -22,6 +22,7 @@ vim.opt.incsearch = true
 vim.opt.winborder = "rounded"
 
 vim.opt.termguicolors = true
+-- vim.g.base16colorspace = 256
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
@@ -35,5 +36,4 @@ vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
-vim.g.nord_italic = false
-vim.g.nord_disable_background = true
+vim.g.gruvbox_material_transparent_background = 1

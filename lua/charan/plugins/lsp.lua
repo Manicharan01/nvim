@@ -54,7 +54,55 @@ vim.lsp.config['pyrefly'] = {
     root_markers = { "pyrefly.toml", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", ".git" }
 }
 
-vim.lsp.enable({ 'lua_ls', 'zls', 'clangd', 'gopls', 'pyrefly' })
+vim.lsp.config['tombi'] = {
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    cmd = { "tombi", "lsp" },
+    filetypes = { "toml" },
+    name = "tombi",
+    root_markers = { "tombi.toml", "pyproject.toml", ".git" }
+}
+
+vim.lsp.config['rust_analyzer'] = {
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    cmd = { "rust-analyzer" },
+    filetypes = { "rust" },
+    name = "rust_analyzer",
+    settings = {
+        ["rust-analyzer"] = {
+            lens = {
+                debug = {
+                    enable = true
+                },
+                enable = true,
+                implementations = {
+                    enable = true
+                },
+                references = {
+                    adt = {
+                        enable = true
+                    },
+                    enumVariant = {
+                        enable = true
+                    },
+                    method = {
+                        enable = true
+                    },
+                    trait = {
+                        enable = true
+                    }
+                },
+                run = {
+                    enable = true
+                },
+                updateTest = {
+                    enable = true
+                }
+            }
+        }
+    }
+}
+
+vim.lsp.enable({ 'lua_ls', 'zls', 'clangd', 'gopls', 'pyrefly', 'rust_analyzer' })
 
 -- 2. LspAttach Autocmd (Keymaps)
 vim.api.nvim_create_autocmd("LspAttach", {
