@@ -1,8 +1,7 @@
 local status, configs = pcall(require, "nvim-treesitter.configs")
 if status then
     configs.setup({
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "zig", "go", "rust" },
-        sync_install = false,
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "zig", "go", "rust", "toml" },
         auto_install = true,
         highlight = {
             enable = true,

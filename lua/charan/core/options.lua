@@ -22,7 +22,6 @@ vim.opt.incsearch = true
 vim.opt.winborder = "rounded"
 
 vim.opt.termguicolors = true
--- vim.g.base16colorspace = 256
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
@@ -31,9 +30,10 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
+-- vim.opt.statusline = true
+vim.g.editorconfig = true
+
 -- Netrw settings
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
-
-vim.g.gruvbox_material_transparent_background = 1

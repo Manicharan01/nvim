@@ -1,6 +1,47 @@
+local status, blink = pcall(require, "blink.cmp")
+if not status then return end
+
+blink.setup({
+    appearance = {
+        use_nvim_cmp_as_default = true,
+        nerd_font_variant = 'mono'
+    },
+
+    snippets = { preset = 'default' },
+
+    keymap = {
+        ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ['<C-e>']     = { 'hide', 'fallback' },
+        ['<CR>']      = { 'accept', 'fallback' },
+        ['<C-y>']     = { 'accept', 'fallback' },
+        ['<C-p>']     = { 'select_prev', 'fallback' },
+        ['<C-n>']     = { 'select_next', 'fallback' },
+        ['<C-b>']     = { 'scroll_documentation_up', 'fallback' },
+        ['<C-f>']     = { 'scroll_documentation_down', 'fallback' },
+    },
+
+    completion = {
+        menu = {
+            border = 'rounded', -- You can also use 'single', 'double', or 'solid'
+        },
+        documentation = {
+            auto_show = true,
+            window = {
+                border = 'rounded',
+            },
+        },
+    },
+
+    sources = {
+        default = { 'lsp', 'snippets', 'path', 'buffer' },
+    },
+})
+
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+
 -- 1. Setup Servers
 vim.lsp.config['lua_ls'] = {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    capabilities = capabilities,
     cmd = { "lua-language-server" },
     filetypes = { "lua" },
     name = "lua_ls",
@@ -16,7 +57,7 @@ vim.lsp.config['lua_ls'] = {
 }
 
 vim.lsp.config['zls'] = {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    capabilities = capabilities,
     cmd = { "zls" },
     filetypes = { "zig", "zir" },
     name = "zls",
@@ -25,14 +66,14 @@ vim.lsp.config['zls'] = {
 }
 
 vim.lsp.config['clangd'] = {
-    capabilities = {
+    capabilities = vim.tbl_deep_extend("force", capabilities, {
         offsetEncoding = { "utf-8", "utf-16" },
         textDocument = {
             completion = {
                 editsNearCursor = true
             }
         }
-    },
+    }),
     cmd = { "clangd" },
     filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
     name = "clangd",
@@ -40,14 +81,14 @@ vim.lsp.config['clangd'] = {
 }
 
 vim.lsp.config['gopls'] = {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    capabilities = capabilities,
     cmd = { "gopls" },
     filetypes = { "go", "gomod", "gowork", "gotmpl" },
     name = "gopls",
 }
 
 vim.lsp.config['pyrefly'] = {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    capabilities = capabilities,
     cmd = { "pyrefly", "lsp" },
     filetypes = { "python" },
     name = "pyrefly",
@@ -55,7 +96,7 @@ vim.lsp.config['pyrefly'] = {
 }
 
 vim.lsp.config['tombi'] = {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    capabilities = capabilities,
     cmd = { "tombi", "lsp" },
     filetypes = { "toml" },
     name = "tombi",
@@ -63,7 +104,7 @@ vim.lsp.config['tombi'] = {
 }
 
 vim.lsp.config['rust_analyzer'] = {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    capabilities = capabilities,
     cmd = { "rust-analyzer" },
     filetypes = { "rust" },
     name = "rust_analyzer",
@@ -102,22 +143,4 @@ vim.lsp.config['rust_analyzer'] = {
     }
 }
 
-vim.lsp.enable({ 'lua_ls', 'zls', 'clangd', 'gopls', 'pyrefly', 'rust_analyzer' })
-
--- 2. LspAttach Autocmd (Keymaps)
-vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("CharanLsp", {}),
-    callback = function(e)
-        local opts = { buffer = e.buf }
-        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-        vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-        vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-        vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-        vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-        vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-        vim.keymap.set("n", "[d", "<cmd>cnext<CR>zz")
-        vim.keymap.set("n", "]d", "<cmd>cprev<CR>zz")
-    end,
-})
+vim.lsp.enable({ 'lua_ls', 'zls', 'clangd', 'gopls', 'pyrefly', 'rust_analyzer', 'tombi' })

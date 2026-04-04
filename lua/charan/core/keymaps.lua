@@ -21,7 +21,6 @@ vim.keymap.set("n", "Q", "<nop>")
 
 -- Tools
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Search & Replace
@@ -38,8 +37,6 @@ vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 vim.keymap.set("n", "<C-b>", "<C-a>", { noremap = true }) -- Increment
 
--- Git / Undotree
+-- Git
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
--- Note: <leader>t using `opts` variable was removed as `opts` wasn't defined in global scope in original file
 vim.keymap.set("n", "<leader>t", ":Git push -u origin ")
