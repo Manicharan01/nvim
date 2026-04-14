@@ -143,4 +143,8 @@ vim.lsp.config['rust_analyzer'] = {
     }
 }
 
-vim.lsp.enable({ 'lua_ls', 'zls', 'clangd', 'gopls', 'pyrefly', 'rust_analyzer', 'tombi' })
+vim.lsp.config['tsgo'] = {
+    capabilities = capabilities,
+}
+
+vim.lsp.enable({ 'lua_ls', 'zls', 'clangd', 'gopls', 'pyrefly', 'rust_analyzer', 'tombi', 'tsgo' })
