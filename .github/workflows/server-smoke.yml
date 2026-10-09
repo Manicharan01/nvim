@@ -1,0 +1,39 @@
+name: Native server profile
+
+on:
+  push:
+    paths:
+      - 'server/**'
+      - 'tests/server_*.lua'
+      - '.github/workflows/server-smoke.yml'
+  pull_request:
+    paths:
+      - 'server/**'
+      - 'tests/server_*.lua'
+      - '.github/workflows/server-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install Neovim 0.12.5
+        shell: bash
+        run: |
+          curl --fail --location --retry 3 \
+            https://github.com/neovim/neovim/releases/download/v0.12.5/nvim-linux-x86_64.tar.gz \
+            --output "$RUNNER_TEMP/nvim.tar.gz"
+          mkdir -p "$RUNNER_TEMP/nvim"
+          tar -xzf "$RUNNER_TEMP/nvim.tar.gz" --strip-components=1 -C "$RUNNER_TEMP/nvim"
+          echo "$RUNNER_TEMP/nvim/bin" >> "$GITHUB_PATH"
+      - name: Test native server profile
+        env:
+          NVIM_APPNAME: nvim-server-test
+        run: |
+          nvim --version
+          nvim --headless -u server/init.lua -c "lua dofile('tests/server_smoke.lua')"
